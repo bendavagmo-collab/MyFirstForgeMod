@@ -14,12 +14,14 @@ public final class RubyTool {
     public RubyTool(FMLJavaModLoadingContext context) {
         var modBusGroup = context.getModBusGroup();
 
-        // Register the common setup event
+        // Register items
+        ModItems.ITEMS.register(modBusGroup);
+
+        // Setup event
         FMLCommonSetupEvent.getBus(modBusGroup).addListener(this::commonSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        LOGGER.info("RubyTool has loaded successfully!");
+        LOGGER.info("RubyTool mod has loaded!");
     }
 }
-
